@@ -1288,7 +1288,7 @@ function _emscripten_asm_const_ii(code, a0) {
  return ASM_CONSTS[code](a0);
 }
 STATIC_BASE = GLOBAL_BASE;
-STATICTOP = STATIC_BASE + 2692528;
+STATICTOP = STATIC_BASE + 2692416;
 __ATINIT__.push({
  func: (function() {
   __GLOBAL__sub_I_AccessibilityScriptingClasses_cpp();
@@ -3170,7 +3170,7 @@ __ATINIT__.push({
   ___emscripten_environ_constructor();
  })
 });
-var STATIC_BUMP = 2692528;
+var STATIC_BUMP = 2692416;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
@@ -3379,29 +3379,6 @@ function _JS_Sound_Set3D(channelInstance, threeD) {
  if (channel.threeD != threeD) {
   channel.threeD = threeD;
   channel.setupPanning();
- }
-}
-function _JS_Sound_SetListenerOrientation(x, y, z, xUp, yUp, zUp) {
- if (WEBAudio.audioWebEnabled == 0) return;
- if (WEBAudio.audioContext.listener.forwardX) {
-  WEBAudio.audioContext.listener.forwardX.setValueAtTime(-x, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.forwardY.setValueAtTime(-y, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.forwardZ.setValueAtTime(-z, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.upX.setValueAtTime(xUp, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.upY.setValueAtTime(yUp, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.upZ.setValueAtTime(zUp, WEBAudio.audioContext.currentTime);
- } else {
-  WEBAudio.audioContext.listener.setOrientation(-x, -y, -z, xUp, yUp, zUp);
- }
-}
-function _JS_Sound_SetListenerPosition(x, y, z) {
- if (WEBAudio.audioWebEnabled == 0) return;
- if (WEBAudio.audioContext.listener.positionX) {
-  WEBAudio.audioContext.listener.positionX.setValueAtTime(x, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.positionY.setValueAtTime(y, WEBAudio.audioContext.currentTime);
-  WEBAudio.audioContext.listener.positionZ.setValueAtTime(z, WEBAudio.audioContext.currentTime);
- } else {
-  WEBAudio.audioContext.listener.setPosition(x, y, z);
  }
 }
 function _JS_Sound_SetLoop(channelInstance, loop) {
@@ -17811,8 +17788,6 @@ Module.asmLibraryArg = {
  "_JS_Sound_ReleaseInstance": _JS_Sound_ReleaseInstance,
  "_JS_Sound_ResumeIfNeeded": _JS_Sound_ResumeIfNeeded,
  "_JS_Sound_Set3D": _JS_Sound_Set3D,
- "_JS_Sound_SetListenerOrientation": _JS_Sound_SetListenerOrientation,
- "_JS_Sound_SetListenerPosition": _JS_Sound_SetListenerPosition,
  "_JS_Sound_SetLoop": _JS_Sound_SetLoop,
  "_JS_Sound_SetLoopPoints": _JS_Sound_SetLoopPoints,
  "_JS_Sound_SetPitch": _JS_Sound_SetPitch,
